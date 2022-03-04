@@ -17,11 +17,48 @@
         });
 
         $('.match-result-load-more').click(function(){
+            for(i=0;i<=4;i++){
             $('.match-result-box').append(
-                "<div>load more</div>"
+                `<div class="match-result-details">
+                <span class="match-result-Round">Round: Matchday 1</span>
+                <span class="match-result-date">Date: 2019-08-09</span>
+                <p class="match-result-teams">
+                    <a href="#FIXME" title="Team" target="_blank">Liverpool FC </a>: <a href="#FIXME"
+                        title="Team" target="_blank">Aston Villa FC </a></p>
+                <spaan class="scores">4:1</spaan>
+            </div>`
             )
-          
+            }
         })
+
+        $('.load-more').click(function(){
+            
+            for(i=0;i<=4;i++){
+                $('.team-performance-box').append(
+                    `
+                <div class="team-results-match-info">
+                <span class="Round">Round: Matchday 1</span>
+                <span class="match-date">Date: 2019-08-09</span>
+                <span class="teams-involved">Liverpool FC : Aston Villa FC</span>
+                <span class="scores">4:1</spaan>
+            </div>`
+                )
+                 
+            }
+        })
+
+        $('.clubs-dropper').click(function(){
+            $.ajax({
+                url:"https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
+                type:"GET",
+                success:function(data){
+                    // $('.clublistmenu').append(`
+                    // <li class="club">${data.clubs[0].name}</li>
+                    // `);
+                    console.log(data.name)
+                }
+            })
+        });
 
    });
 
