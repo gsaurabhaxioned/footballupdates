@@ -106,11 +106,37 @@ li {
 /*=================================
   Header styling starts here
 =================================*/
+header {
+  background-color: #a52a2a;
+}
 
+header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.logo img {
+  width: 38%;
+  border-radius: 50px;
+}
 
+.menus {
+  flex-basis: 20%;
+}
 
+.menus ul {
+  display: flex;
+  justify-content: space-between;
+}
 
+.menus ul li a {
+  color: #ffff00;
+}
+
+.logout {
+  color: #fff;
+}
 
 /*=================================
   Header styling ends here
@@ -148,15 +174,11 @@ form {
   width: 50%;
 }
 
-.username {
-  width: 100%;
-  padding: 13px 0;
-}
-
-.password {
+input {
   width: 100%;
   padding: 13px 0;
   margin-top: 20px;
+  border-radius: 8px;
 }
 
 .submit {
@@ -164,8 +186,17 @@ form {
 }
 
 input[type="submit"] {
+  width: auto;
   padding: 13px;
   margin: 20px auto;
+  background-color: #008000;
+  color: #fff;
+  font-size: 20px;
+}
+
+.forgot {
+  color: #ffa500;
+  font-size: 25px;
 }
 
 
