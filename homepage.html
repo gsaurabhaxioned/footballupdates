@@ -1,0 +1,99 @@
+<!doctype html>
+
+<!-- If multi-language site, reconsider usage of html lang declaration here. -->
+<html lang="en"> 
+
+<head>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Client</title>
+  
+  <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!--font-awesome link for icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+
+  <!-- html5shiv aka html5 shim. Supporting HTML5 and CSS for IE browsers less than IE9. -->	
+  <!--[if lt IE 9]>  
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>  
+  <![endif]-->
+
+</head>
+
+<body>
+  <!--container start-->
+  <div class="container">
+    <!--header section start-->
+    <header>
+      <a href="#FIXME">
+          <h1>
+              <img src="data:image/png;base64,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" alt="Logo">
+          </h1>
+      </a>
+          <span class="hamburger">ham</span>
+          <nav class="menus">
+            <ul>
+              <li><a href="#FIXME" title="Home" target="_blank">Home</a></li>
+              <li><a href="#FIXME" title="Clubs List" target="_blank">Clubs List</a></li>
+              <li><a href="#FIXME" title="Match Details" target="_blank">Match Details</a></li>
+            </ul>
+        </nav>
+            <a href="#FIXME" title="Log Out" target="_blank">Logout</a>       
+    </header>
+    <!--header section start-->
+    <!--main section start-->
+    <main>
+        <section class="leage-info">
+            <h2>English Premier Leage</h2>
+            <p class="about-leage">
+                The Premier League, also known exonymously as the English Premier League or the EPL (legal name: The Football
+                 Association Premier League Limited), is the top level of the English football league system. Contested by 20 
+                 clubs, it operates on a system of promotion and relegation with the English Football League (EFL).
+            </p>
+            <h3>Leage History</h3>
+            <p class="leage-history">
+                The competition was founded as the FA Premier League on 20 February 1992 following the decision of clubs in the 
+                Football League First Division to break away from the Football League, founded in 1888, and take advantage of a 
+                lucrative television rights sale to Sky.
+            </p>
+        </section>
+    </main>
+    <!--main section end-->
+
+    <!--footer section start-->
+    <footer>      
+        <a href="">
+            <h1>
+                <img src="data:image/png;base64,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" alt="Logo">
+            </h1>
+        </a>
+            <span class="hamburger">ham</span>
+            <nav class="menus">
+              <ul>
+                <li><a href="#FIXME" title="Home" target="_blank">Home</a></li>
+                <li><a href="#FIXME" title="Clubs List" target="_blank">Clubs List</a></li>
+                <li><a href="#FIXME" title="Match Details" target="_blank">Match Details</a></li>
+              </ul>
+          </nav>
+              <ul class="social-links">
+                  <li><a href="#FIXME" title="Facebook" target="_blank">Facebook</a></li>
+                  <li><a href="#FIXME" title="Instagram" target="_blank">Instagram</a></li>
+                  <li><a href="#FIXME" title="Twitter" target="_blank">Twitter</a></li>
+              </ul>
+              <span class="copyright">&copy; PREMIER LEAGE 2022</span>
+    </footer>
+    <!--footer section end-->
+
+  </div>
+  <!--container end-->
+
+<script src="assets/vendor/jquery-1.8.3.min.js"></script>
+<script src="assets/js/script.js"></script> 
+</body>
+</html>
