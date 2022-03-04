@@ -2,11 +2,14 @@
     
    $(document).ready(function(){
         let valid = localStorage.getItem('validuser');
-        if(valid !== 'true'){
+        console.log(window.location.href);
+        if(!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")){
+        if(!valid){
             window.location.href='index.html';
         }else{
 
         }
+    }
 
         $('.logout').click(function(){
             localStorage.clear();
@@ -14,10 +17,10 @@
         });
 
         $('.match-result-load-more').click(function(){
-            alert();
-            $('.match-result').append(
-                "<div>hdhd bhd hbdh</div>"
+            $('.match-result-box').append(
+                "<div>load more</div>"
             )
+          
         })
 
    });
