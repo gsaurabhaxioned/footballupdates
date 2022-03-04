@@ -179,6 +179,10 @@ main {
     color: #fff;
 }
 
+.login-page {
+  min-height: 100vh;
+}
+
 .login-page .wrapper {
   padding: 50px 0;
   display: flex;
@@ -195,7 +199,7 @@ h1 {
 
 h2 {
   font-size: 35px;
-  color: #ff00ff;
+  color: #ffe4c4;
 }
 
 form {
@@ -238,6 +242,10 @@ input[type="submit"] {
   font-size: 25px;
 }
 
+.leage-info {
+  min-height: 100vh;
+}
+
 .leage-info .wrapper {
   padding: 50px 0;
   display: flex;
@@ -248,7 +256,7 @@ input[type="submit"] {
 
 h3 {
   margin-top: 20px;
-  color: #ff00ff;
+  color: #ffe4c4;
   font-size: 36px;
  }
 
@@ -261,6 +269,10 @@ h3 {
 /* about leage styling ends  */
 /* club list styling start  */
 
+.clublist {
+  min-height: 100vh;
+}
+
 .clublist .wrapper {
   padding: 20px 0;
   display: flex;
@@ -269,6 +281,7 @@ h3 {
 }
 
 .clubs-dropper {
+  color: #ffe4c4;
   font-size: 27px;
 }
 
@@ -321,6 +334,10 @@ h3 {
 /* club list styling end  */
 /* match details styling start  */
 
+.match-details {
+  min-height: 100vh;
+}
+
 .match-details .wrapper {
   padding: 20px 0;
   display: flex;
@@ -329,6 +346,7 @@ h3 {
 }
 
 .matchdays-dropper {
+  color: #ffe4c4;
   font-size:27px
 }
 
