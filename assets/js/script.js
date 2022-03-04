@@ -9,22 +9,27 @@
         let username = $('.username').val(),
         password = $('.password').val();
         if(username === user1 && password === pass1){
-            window.open('homepage.html');
             localStorage.setItem('validuser',true);
+            window.open('homepage.html');
         }else{
             alert('invalid username or password');
             window.open('index.html');
         }
     }
     
-    window.onload = function(){
+   $(document).ready(function(){
+
         let valid = localStorage.getItem('valid');
         if(valid !== true){
             window.open('index.html');
         }
-    }
-        
 
+        $('.logout').click(function(){
+            localStorage.clear();
+            window.open('index.html');
+        });
+
+   });
 
 
 
