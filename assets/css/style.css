@@ -179,12 +179,13 @@ main {
     color: #fff;
 }
 
-.main .wrapper {
+.login-page .wrapper {
   padding: 50px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(0,128,0,0.7);
 }
 
 h1 {
@@ -204,9 +205,10 @@ form {
 
 input {
   width: 100%;
-  padding: 13px 0;
+  padding: 13px 33px;
   margin-top: 20px;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .submit {
@@ -217,13 +219,13 @@ input[type="submit"] {
   width: auto;
   padding: 13px;
   margin: 20px auto;
-  background-color: #008000;
+  background-color: #6495ed;
   color: #fff;
   font-size: 20px;
 }
 
 .forgot {
-  color: #ffa500;
+  color: #00ffff;
   font-size: 25px;
 }
 
@@ -320,7 +322,46 @@ h3 {
 /* match details styling start  */
 
 .match-details .wrapper {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
   background-color: rgb(0,128,0,0.7);
+}
+
+.matchdays-dropper {
+  font-size:27px
+}
+
+.matchdays {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  font-size: 20px;
+}
+
+.matchdays li {
+  cursor: pointer;
+}
+
+.match-result-details {
+  padding: 16px 0;
+  border-bottom: 4px dashed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.match-result-teams a{
+  color: #fff;
+}
+
+.match-result-load-more {
+  padding: 10px;
+  margin: 10% 25%;
+  background-color: #008000;
+  color: #fff;
+  white-space: nowrap;
 }
 
 /* match details styling end  */
