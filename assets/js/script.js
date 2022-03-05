@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let valid = localStorage.getItem('validuser'),
+    let valid = localStorage.getItem('validuser')
         i = 4;
     if (!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")) {
         if (!valid) {
@@ -25,6 +25,8 @@ $(document).ready(function () {
         })
     });
     $('.clublistmenu').on('click', 'li', function () {
+        i = 4;
+        document.querySelector('.load-more').style.display = "block";
         let clubname = $(this).html();
         $('.team-info').html("");
         $('.team-performance-box').html("");
@@ -60,21 +62,21 @@ $(document).ready(function () {
                             </div>`
                         )
                     }
-                }
-                $('.team-results').on('click', 'button', function () {
-                    i += 5;
-                    let team_result = document.querySelectorAll('.team-results-match-info'),
-                        team_result_length = team_result.length;
-
-                    for (j = 0; j <= i; j++) {
-                        team_result[j].style.display = "flex";
-                    }
-                    if (i === team_result_length - 1) {
-                        this.style.display = "none";
-                    }
-                })
+                }      
             }
         })
+    })
+    $('.team-results').on('click', 'button', function () {
+        i += 5;
+
+        let team_result = document.querySelectorAll('.team-results-match-info'),
+            team_result_length = team_result.length-1;
+        for (j = 0; j <= i; j++) {
+            team_result[j].style.display = "flex";
+            if(j === team_result_length) {
+                document.querySelector('.load-more').style.display = "none";
+            }
+        }
     })
     $('.matchdays-dropper').click(function () {
         $.ajax({
@@ -84,13 +86,13 @@ $(document).ready(function () {
                 let result = JSON.parse(data);
 
                 for (key in result.matches) {
-                    console.log(result.matches[key].round);
                     $('.matchdays').append(`<li class='match-day'>${result.matches[key].round}</li>`);
                 }
             }
         })
     });
     $('.matchdays').on('click', 'li', function () {
+        i = 4;
         $('.match-result-box').html("");
         let match = $(this).html();
         $.ajax({
@@ -103,7 +105,7 @@ $(document).ready(function () {
                         $('.match-result-box').append(
                             `<div class="match-result-details">
                                 <span class="match-result-Round">Round: ${result.matches[key].round}</span>
-                                <span class="match-result-date">Date:  ${result.matches[key].date}</span>
+                                <span class="match-result-date">Date: ${result.matches[key].date}</span>
                                 <p class="match-result-teams">
                                     <a href="clublis.html" title="Team" target="_blank">${result.matches[key].team1} </a>: <a href="clublist.html"
                                         title="Team" target="_blank">${result.matches[key].team2} </a></p>
@@ -116,45 +118,19 @@ $(document).ready(function () {
                     `<button class="match-result-load-more">Show More</button> `
                 )
             }
-        })
-        $('.match-result-box').on('click', 'button', function () {
-            i += 5;
-            let match_result = document.querySelectorAll('.match-result-details'),
-                match_result_length = match_result.length;
-
-            for (j = 0; j <= i; j++) {
-                match_result[j].style.display = "flex";
-            }
-            if (i === match_result_length - 1) {
-                this.style.display = "none";
-            }
-        })
+        })     
     })
-    $('.match-result-load-more').click(function () {
-        for (i = 0; i <= 4; i++) {
-            $('.match-result-box').append(
-                `<div class="match-result-details">
-                <span class="match-result-Round">Round: Matchday 1</span>
-                <span class="match-result-date">Date: 2019-08-09</span>
-                <p class="match-result-teams">
-                    <a href="#FIXME" title="Team" target="_blank">Liverpool FC </a>: <a href="#FIXME"
-                        title="Team" target="_blank">Aston Villa FC </a></p>
-                <spaan class="scores">4:1</spaan>
-            </div>`
-            )
+    $('.match-result-box').on('click', 'button', function () {
+        i += 5;
+        let match_result = document.querySelectorAll('.match-result-details'),
+            match_result_length = match_result.length-1;
+        for (j = 0; j <= i; j++) {
+            match_result[j].style.display = "flex";
+            if(j === match_result_length) {
+                document.querySelector('.match-result-load-more').style.display = "none";
+            }
         }
-    })
-    $('.load-more').click(function () {
-        for (i = 0; i <= 4; i++) {
-            $('.team-performance-box').append(
-                `<div class="team-results-match-info">
-                <span class="Round">Round: Matchday 1</span>
-                <span class="match-date">Date: 2019-08-09</span>
-                <span class="teams-involved">Liverpool FC : Aston Villa FC</span>
-                <span class="scores">4:1</spaan>
-            </div>`
-            )
-        }
+       
     })
 });
 
