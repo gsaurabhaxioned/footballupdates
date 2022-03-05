@@ -52,10 +52,13 @@
                 url:"https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
                 type:"GET",
                 success:function(data){
-                    // $('.clublistmenu').append(`
-                    // <li class="club">${data.clubs[0].name}</li>
-                    // `);
-                    console.log(data.name)
+                        let result = JSON.parse(data);
+                        for(key in result.clubs){
+                            $('.clublistmenu').append(`
+                            <li class='cluc'>${result.clubs[key].name}</li>
+                            `);
+                        }
+                    
                 }
             })
         });
