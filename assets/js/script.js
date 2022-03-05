@@ -55,15 +55,59 @@
                         let result = JSON.parse(data);
                         for(key in result.clubs){
                             $('.clublistmenu').append(`
-                            <li class='cluc'>${result.clubs[key].name}</li>
+                            <li class='club'>${result.clubs[key].name}</li>
                             `);
-                        }
-                    
+                        }                    
                 }
             })
         });
 
+        $('.matchdays-dropper').click(function(){
+            $.ajax({
+                url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
+                type:"GET",
+                success:function(data){
+                        let result = JSON.parse(data);
+                       
+                         for(key in result.matches){
+
+                            $('.matchdays').append(`
+                            <li class='match-day'>${result.matches[key].round}</li>
+                            `);
+                         }
+                    }           
+            })
+        });
+
+        $('.matchdays').on('click','li',function(){
+
+            $.ajax({
+                url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
+                type:"GET",
+                success:function(data){
+                        let result = JSON.parse(data);
+                       
+                         for(key in result.matches){
+                            $('.match-result-box').append(
+                                `<div class="match-result-details">
+                                <span class="match-result-Round">Round: ${result.matches[key].round}</span>
+                                <span class="match-result-date">Date:  ${result.matches[key].date}</span>
+                                <p class="match-result-teams">
+                                    <a href="clublis.html" title="Team" target="_blank">${result.matches[key].team1} </a>: <a href="clublist.html"
+                                        title="Team" target="_blank">${result.matches[key].team2} </a></p>
+                                <spaan class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
+                            </div>`
+                            )
+                          
+                         }
+                    }           
+            })
+          
+        })
+
    });
+
+       
 
    function login(event){
        event.preventDefault();
