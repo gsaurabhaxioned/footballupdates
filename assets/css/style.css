@@ -297,7 +297,8 @@ h3 {
   font-size: 20px;
 }
 
-.clublistmenu li {
+.clublistmenu li,.matchdays li {
+  background: radial-gradient(#ff0000,transparent);
   cursor: pointer;
 }
 
@@ -311,13 +312,27 @@ h3 {
   margin-top: 20px;
 }
 
-.team-results-match-info {
+.team-name,.team-code,.country-name {
+  color: #00ffff;
+  font-size: 30px;
+}
+
+.team-code {
+  font-size: 25px;
+}
+
+.country-name {
+  font-size: 20px;
+}
+
+.team-results-match-info,.match-result-details {
   padding: 16px;
   border-bottom: 4px dashed;
   display: none;
   flex-direction: column;
   row-gap: 10px;
   text-align: center;
+  background: radial-gradient(#000,transparent);
 }
 
 .team-results-match-info:nth-of-type(-n+5) {
