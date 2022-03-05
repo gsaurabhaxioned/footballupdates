@@ -313,10 +313,14 @@ h3 {
 .team-results-match-info {
   padding: 16px;
   border-bottom: 4px dashed;
-  display: flex;
+  display: none;
   flex-direction: column;
   row-gap: 10px;
   text-align: center;
+}
+
+.team-results-match-info:nth-of-type(-n+5) {
+  display: flex;
 }
 
 .team-performance-box {
@@ -368,7 +372,7 @@ h3 {
 .match-result-details {
   padding: 16px 0;
   border-bottom: 4px dashed;
-  display: flex;
+  display: none;;
   flex-direction: column;
   row-gap: 10px;
 }
@@ -377,12 +381,9 @@ h3 {
   color: #fff;
 }
 
-.match-result-details {
-  display: none;
-}
 
 .match-result-details:nth-of-type(-n+5) {
-  display: block;
+  display: flex;
 }
 
 .match-result-load-more {
