@@ -286,6 +286,7 @@ h3 {
 .clubs-dropper {
   color: #ffe4c4;
   font-size: 27px;
+  cursor: pointer;
 }
 
 .clublistmenu {
@@ -354,7 +355,8 @@ h3 {
 
 .matchdays-dropper {
   color: #ffe4c4;
-  font-size:27px
+  font-size:27px;
+  cursor: pointer;
 }
 
 .matchdays {
@@ -388,7 +390,7 @@ h3 {
 
 .match-result-load-more {
   padding: 10px;
-  margin: 10% 25%;
+  margin: 10% 34%;
   background-color: #008000;
   color: #fff;
   white-space: nowrap;
@@ -456,9 +458,36 @@ footer img {
 =================================*/ 
 
 /*media query starts*/
+
+/*media query for 1440px starts here*/
+@media only screen and (max-width: 1440px) {
+  .menus {
+    flex-basis: 30%;
+  }
+}
+
+/*media query for 995px starts here*/
+@media only screen and (max-width: 1024px) {
+  .menus {
+    flex-basis: 36%;
+  }
+}
+
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
 
+.clublist .wrapper,.leage-info-wrapper,.login-page .wrapper,.match-details .wrapper {
+  width: 100%;
+}
 
+header .wrapper,footer .wrapper {
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.menus {
+  width: 70%;
+}
 
 }  
