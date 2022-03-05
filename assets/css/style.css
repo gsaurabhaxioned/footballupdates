@@ -491,3 +491,19 @@ header .wrapper,footer .wrapper {
 }
 
 }  
+
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
+
+  h2 {
+    font-size: 23px;
+  }
+
+  .clublistmenu {
+    font-size: 16px;
+  }
+
+  .clubs-dropper {
+    font-size: 24px;
+  }
+}
