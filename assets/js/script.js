@@ -1,7 +1,8 @@
 
     
    $(document).ready(function(){
-        let valid = localStorage.getItem('validuser');
+        let valid = localStorage.getItem('validuser'),
+        i=4;
         console.log(window.location.href);
         if(!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")){
         if(!valid){
@@ -62,6 +63,25 @@
             })
         });
 
+        $('.clublistmenu').on('click','li',function(){
+            $('.team-info').html("");
+            $('.team-performance-box').html("");
+            $('.team-info').append(
+                `<span class="team-name">Name: Aston Villa FC</span>
+                <span class="team-code">Code: AVL</span>
+                <span class="country-name">England</span>`  
+            );
+
+            $('.team-performance-box').append(
+                `<div class="team-results-match-info">
+                <span class="Round">Round: Matchday 1</span>
+                <span class="match-date">Date: 2019-08-09</span>
+                <span class="teams-involved">Liverpool FC : Aston Villa FC</span>
+                <span class="scores">4:1</spaan>
+            </div>`
+            )
+        })
+
         $('.matchdays-dropper').click(function(){
             $.ajax({
                 url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
@@ -71,23 +91,25 @@
                        
                          for(key in result.matches){
 
-                            $('.matchdays').append(`
-                            <li class='match-day'>${result.matches[key].round}</li>
-                            `);
+                            $('.matchdays').append(`<li class='match-day'>${result.matches[key].round}</li>`);
                          }
+
+
                     }           
             })
         });
 
         $('.matchdays').on('click','li',function(){
-
+            $('.match-result-box').html("");
+            let match = $(this).html();
+           
             $.ajax({
                 url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
                 type:"GET",
                 success:function(data){
-                        let result = JSON.parse(data);
-                       
+                        let result = JSON.parse(data);                   
                          for(key in result.matches){
+                             if(result.matches[key].round === match){
                             $('.match-result-box').append(
                                 `<div class="match-result-details">
                                 <span class="match-result-Round">Round: ${result.matches[key].round}</span>
@@ -98,16 +120,30 @@
                                 <spaan class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
                             </div>`
                             )
+                             }
                           
                          }
+                         $('.match-result-box').append(
+                             `<button class="match-result-load-more">Show More</button> `
+                         )
                     }           
             })
+                $('.match-result-box').on('click','button',function(){
+                    i+=5;
+            let match_result=document.querySelectorAll('.match-result-details'),
+              match_result_length = match_result.length;
+                
+            for(j=0;j<=i;j++){
+                match_result[j].style.display = "block";
+            }
+            if(i === match_result_length-1){
+                this.style.display = "none";
+            }
+                })
           
         })
 
    });
-
-       
 
    function login(event){
        event.preventDefault();
