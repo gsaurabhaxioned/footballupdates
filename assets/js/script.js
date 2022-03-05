@@ -3,7 +3,6 @@
    $(document).ready(function(){
         let valid = localStorage.getItem('validuser'),
         i=4;
-        console.log(window.location.href);
         if(!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")){
         if(!valid){
             window.location.href='index.html';
@@ -64,24 +63,63 @@
         });
 
         $('.clublistmenu').on('click','li',function(){
+            let clubname = $(this).html();
             $('.team-info').html("");
             $('.team-performance-box').html("");
-            $('.team-info').append(
-                `<span class="team-name">Name: Aston Villa FC</span>
-                <span class="team-code">Code: AVL</span>
-                <span class="country-name">England</span>`  
-            );
 
-            $('.team-performance-box').append(
-                `<div class="team-results-match-info">
-                <span class="Round">Round: Matchday 1</span>
-                <span class="match-date">Date: 2019-08-09</span>
-                <span class="teams-involved">Liverpool FC : Aston Villa FC</span>
-                <span class="scores">4:1</spaan>
-            </div>`
-            )
+            $.ajax({
+                url:"https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
+                type:"GET",
+                success:function(data){
+                    let result = JSON.parse(data);
+                    for(key in result.clubs){
+                    if(clubname === result.clubs[key].name){
+                         $('.team-info').append(
+                                `<span class="team-name">Name: ${result.clubs[key].name}</span>
+                                <span class="team-code">Code: ${result.clubs[key].code}</span>
+                                <span class="country-name">${result.clubs[key].country}</span>`  
+                            );
+                    }
+                }
+                }
+            })
+
+            $.ajax({
+                url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
+                type:"GET",
+                success:function(data){
+                    let result = JSON.parse(data);                  
+                     for(key in result.matches){
+                         if(result.matches[key].team1 === clubname || result.matches[key].team2 === clubname){
+                           
+
+                
+                            $('.team-performance-box').append(
+                                `<div class="team-results-match-info">
+                                <span class="Round">Round: ${result.matches[key].round}</span>
+                                <span class="match-date">Date:  ${result.matches[key].date}</span>
+                                <span class="teams-involved">${result.matches[key].team1}: ${result.matches[key].team2}</span>
+                                <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
+                            </div>`
+                            )
+                         }       
+                     }
+
+                     $('.team-results').on('click','button',function(){
+                        i+=5;
+                let team_result=document.querySelectorAll('.team-results-match-info'),
+                  team_result_length = team_result.length;
+                    
+                for(j=0;j<=i;j++){
+                    team_result[j].style.display = "flex";
+                }
+                if(i === team_result_length-1){
+                    this.style.display = "none";
+                }
+                    })
+                }           
+            })
         })
-
         $('.matchdays-dropper').click(function(){
             $.ajax({
                 url:"https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
@@ -90,10 +128,9 @@
                         let result = JSON.parse(data);
                        
                          for(key in result.matches){
-
+                            console.log(result.matches[key].round);
                             $('.matchdays').append(`<li class='match-day'>${result.matches[key].round}</li>`);
                          }
-
 
                     }           
             })
@@ -117,7 +154,7 @@
                                 <p class="match-result-teams">
                                     <a href="clublis.html" title="Team" target="_blank">${result.matches[key].team1} </a>: <a href="clublist.html"
                                         title="Team" target="_blank">${result.matches[key].team2} </a></p>
-                                <spaan class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
+                                <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</span>
                             </div>`
                             )
                              }
@@ -134,7 +171,7 @@
               match_result_length = match_result.length;
                 
             for(j=0;j<=i;j++){
-                match_result[j].style.display = "block";
+                match_result[j].style.display = "flex";
             }
             if(i === match_result_length-1){
                 this.style.display = "none";
