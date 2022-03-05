@@ -377,6 +377,14 @@ h3 {
   color: #fff;
 }
 
+.match-result-details {
+  display: none;
+}
+
+.match-result-details:nth-of-type(-n+5) {
+  display: block;
+}
+
 .match-result-load-more {
   padding: 10px;
   margin: 10% 25%;
