@@ -133,7 +133,7 @@ header .wrapper {
 .cross::before {
   content: "\f0c9";
   float: right;
-  color: #000;
+  color: #fff;
   font-family: "fontAwesome";
   text-indent: 0;
 }
@@ -153,14 +153,34 @@ header .wrapper {
 
 .menus ul li a {
   color: #ffff00;
+  transition: all ease-in-out 1s;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
 }
+
+.menus ul li a:hover {
+  color: #00ffff;
+}
+
 
 .logout {
   padding: 10px;
   border: none;
   background-color: transparent;
   color: #fff;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
 }
+
+.logout:hover {
+  color: #00ffff;
+}
+
 
 /*=================================
   Header styling ends here
@@ -302,6 +322,18 @@ h3 {
   cursor: pointer;
 }
 
+.club {
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
+}
+
+.club:hover {
+  color: #00ffff;
+}
+
 .team-info {
   display: flex;
   flex-direction: column;
@@ -348,6 +380,15 @@ h3 {
 
 .teams-involved {
   color: #fff;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
+}
+
+.teams-involved:hover {
+  color: #00ffff;
 }
 
 .load-more {
@@ -356,7 +397,18 @@ h3 {
   background-color: #008000;
   color: #fff;
   white-space: nowrap;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
 }
+
+.load-more:hover {
+  background-color: #00ffff;
+  color: #ff0000;
+}
+
 
 /* club list styling end  */
 /* match details styling start  */
@@ -388,6 +440,15 @@ h3 {
 
 .matchdays li {
   cursor: pointer;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
+}
+  
+.matchdays li:hover {
+    color: #00ffff;
 }
 
 .yellow {
@@ -404,6 +465,15 @@ h3 {
 
 .match-result-teams a{
   color: #fff;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
+}
+  
+.match-result-teams a:hover {
+    color: #00ffff;
 }
 
 
@@ -417,7 +487,18 @@ h3 {
   background-color: #008000;
   color: #fff;
   white-space: nowrap;
+  transition: all ease-in-out 1;
+  -webkit-transition: all ease-in-out 1s;
+  -ms-transition: all ease-in-out 1s;
+  -o-transition: all ease-in-out 1s;
+  -moz-transition: all ease-in-out 1s;
 }
+
+.match-result-load-more:hover {
+  background-color: #00ffff;
+  color: #ff0000;
+}
+
 
 /* match details styling end  */
 /*=================================
@@ -467,6 +548,10 @@ footer img {
   -moz-transition: all ease-in-out 0.5s;
 }
 
+.social-links li a:hover:before {
+  color: #00ffff;
+}
+
 .social-links li:nth-child(2) a::before {
   content: "\f16d";
 }
@@ -510,7 +595,11 @@ header .wrapper,footer .wrapper {
 }
 
 .menus {
-  width: 70%;
+  width: 45%;
+}
+
+.logout {
+  margin-left: auto;
 }
 
 }  
@@ -528,5 +617,47 @@ header .wrapper,footer .wrapper {
 
   .clubs-dropper {
     font-size: 24px;
+  }
+
+  .headermenus {
+    width: 100%;
+    padding: 10px;
+    display: none;
+    background-color: #ff0000;
+  }
+
+  .menus {
+    width: 70%;
+  }
+
+  .headermenus ul {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .hamburger {
+    margin-right: auto;
+    display: block;
+  }
+
+  .team-details {
+    padding-left: 5%;
+  }
+
+  .match-result-teams a:hover,.logout:hover,.club:hover,.teams-involved:hover,.matchdays li:hover,.match-result-teams a:hover {
+    color: #fff;
+  }
+
+  .load-more:hover,.match-result-load-more:hover {
+    background-color: #008000;
+    color: #fff;
+  }
+
+  .social-links li a:hover:before {
+    color: #ffa500;
+  }
+
+  .menus ul li a:hover {
+    color: #ffff00;
   }
 }
