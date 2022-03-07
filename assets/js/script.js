@@ -1,4 +1,12 @@
 $(document).ready(function () {
+
+    $(document).ready(function () {
+        $(".hamburger").click(function () {
+            $(".headermenus").slideToggle();
+            $(this).toggleClass("cross");
+        });
+    });
+
     let valid = localStorage.getItem('validuser'),
     url = new URL(window.location.href),
     urlstring = url.search.slice(1),
@@ -54,8 +62,11 @@ $(document).ready(function () {
                         )
                     }
                 }      
+                changecolor(paramvalue);
             }
         })
+
+        
 
     }
         i = 4;
@@ -87,6 +98,8 @@ $(document).ready(function () {
         i = 4;
         document.querySelector('.load-more').style.display = "block";
         let clubname = $(this).html();
+        $('.clublistmenu li').removeClass("yellow");
+        $(this).addClass('yellow');
         $('.team-info').html("");
         $('.team-performance-box').html("");
         $.ajax({
@@ -159,6 +172,8 @@ $(document).ready(function () {
     $('.matchdays').on('click', 'li', function () {
         i = 4;
         $('.match-result-box').html("");
+        $('.matchdays li').removeClass("yellow");
+        $(this).addClass('yellow');
         let match = $(this).html();
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
@@ -213,6 +228,7 @@ $(document).ready(function () {
             }
         })
     })
+    
 });
 
 function login(event) {
@@ -232,3 +248,13 @@ function login(event) {
         window.open('index.html');
     }
 }
+function changecolor(paramvalue){
+    let clubnames = document.querySelectorAll('.clublist li');
+       clubnames.forEach(i=>{
+       console.log(i);
+       if(i.innerHTML === paramvalue){
+           i.style.color = "#ffff00";
+       }
+   })
+}
+
