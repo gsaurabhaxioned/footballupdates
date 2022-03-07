@@ -8,13 +8,87 @@
    v2.0 | 20110126
    License: none (public domain)
    ========================================================================== */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
-ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,17 +98,30 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html {
+  overflow-y: scroll;
+}
 
 /* Align radios and text inputs with their label */
 
-input[type='radio'] { vertical-align: text-bottom; }
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
 
 /* Hand cursor on clickable input elements */
 label,
@@ -50,7 +137,9 @@ strong {
   font-size: inherit;
 }
 
-em { font-style: italic; }
+em {
+  font-style: italic;
+}
 
 img {
   width: 100%;
@@ -66,8 +155,13 @@ sup {
   line-height: 0;
 }
 
-sup { top: -.7em; }
-sub { bottom: -.25em; }
+sup {
+  top: -.7em;
+}
+
+sub {
+  bottom: -.25em;
+}
 
 /* 1.2. Clear Fix
    ========================== */
@@ -78,8 +172,13 @@ sub { bottom: -.25em; }
   content: " ";
 }
 
-.cf:after { clear: both; }
-.cf { *zoom: 1; }
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
 
 /*for all*/
 body {
@@ -87,9 +186,9 @@ body {
   font-family: sans-serif;
 }
 
-a { 
+a {
   display: inline-block;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 li {
@@ -100,7 +199,7 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1519px;
-  width: 86%; 
+  width: 86%;
   margin: 0 auto;
 }
 
@@ -153,38 +252,36 @@ header .wrapper {
 
 .menus ul li a {
   color: #ffff00;
-  transition: all ease-in-out 1s;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
 
 .menus ul li a:hover {
   color: #00ffff;
 }
 
-
 .logout {
   padding: 10px;
   border: none;
   background-color: transparent;
   color: #fff;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
 
 .logout:hover {
   color: #00ffff;
 }
 
-
 /*=================================
   Header styling ends here
-=================================*/  
+=================================*/
 
 /*=================================
   main styling starts here
@@ -193,13 +290,13 @@ header .wrapper {
 /* login page styling start  */
 
 main {
-    width: 100%;
-    background-image: url(https://blog.playo.co/wp-content/uploads/2017/03/football-shots-you-need-to-know.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #000;
-    background-blend-mode:luminosity;
-    color: #fff;
+  width: 100%;
+  background-image: url(https://blog.playo.co/wp-content/uploads/2017/03/football-shots-you-need-to-know.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-blend-mode: luminosity;
+  color: #fff;
 }
 
 .login-page {
@@ -212,22 +309,22 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0,128,0,0.7);
+  background-color: rgb(0, 128, 0, 0.7);
 }
 
 h1 {
-  text-align: center;
   font-size: 45px;
+  text-align: center;
 }
 
 h2 {
-  font-size: 35px;
   color: #ffe4c4;
+  font-size: 35px;
 }
 
 form {
-  margin-top: 50px;
   width: 50%;
+  margin-top: 50px;
 }
 
 input {
@@ -274,20 +371,20 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(0,128,0,0.7);
+  background: rgb(0, 128, 0, 0.7);
 }
 
 h3 {
   margin-top: 20px;
   color: #ffe4c4;
   font-size: 36px;
- }
+}
 
- .leage-history {
+.leage-history {
   width: 50%;
   margin-top: 20px;
   font-size: 21px;
- }
+}
 
 /* about leage styling ends  */
 /* club list styling start  */
@@ -300,7 +397,7 @@ h3 {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
-  background-color: rgb(0,128,0,0.7);
+  background-color: rgb(0, 128, 0, 0.7);
 }
 
 .clubs-dropper {
@@ -317,17 +414,18 @@ h3 {
   font-size: 20px;
 }
 
-.clublistmenu li,.matchdays li {
-  background: radial-gradient(#ff0000,transparent);
+.clublistmenu li,
+.matchdays li {
+  background: radial-gradient(#ff0000, transparent);
   cursor: pointer;
 }
 
 .club {
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
 
 .club:hover {
@@ -344,7 +442,9 @@ h3 {
   margin-top: 20px;
 }
 
-.team-name,.team-code,.country-name {
+.team-name,
+.team-code,
+.country-name {
   color: #00ffff;
   font-size: 30px;
 }
@@ -357,14 +457,15 @@ h3 {
   font-size: 20px;
 }
 
-.team-results-match-info,.match-result-details {
+.team-results-match-info,
+.match-result-details {
   padding: 16px;
   border-bottom: 4px dashed;
   display: none;
   flex-direction: column;
   row-gap: 10px;
   text-align: center;
-  background: radial-gradient(#000,transparent);
+  background: radial-gradient(#000, transparent);
 }
 
 .team-results-match-info:nth-of-type(-n+5) {
@@ -380,11 +481,11 @@ h3 {
 
 .teams-involved {
   color: #fff;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
 
 .teams-involved:hover {
@@ -396,19 +497,18 @@ h3 {
   margin: 10% 36%;
   background-color: #008000;
   color: #fff;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
   white-space: nowrap;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
 }
 
 .load-more:hover {
   background-color: #00ffff;
   color: #ff0000;
 }
-
 
 /* club list styling end  */
 /* match details styling start  */
@@ -421,12 +521,12 @@ h3 {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
-  background-color: rgb(0,128,0,0.7);
+  background-color: rgb(0, 128, 0, 0.7);
 }
 
 .matchdays-dropper {
   color: #ffe4c4;
-  font-size:27px;
+  font-size: 27px;
   cursor: pointer;
 }
 
@@ -440,15 +540,15 @@ h3 {
 
 .matchdays li {
   cursor: pointer;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
-  
+
 .matchdays li:hover {
-    color: #00ffff;
+  color: #00ffff;
 }
 
 .yellow {
@@ -458,24 +558,24 @@ h3 {
 .match-result-details {
   padding: 16px 0;
   border-bottom: 4px dashed;
-  display: none;;
+  display: none;
+  ;
   flex-direction: column;
   row-gap: 10px;
 }
 
-.match-result-teams a{
+.match-result-teams a {
   color: #fff;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
-}
-  
-.match-result-teams a:hover {
-    color: #00ffff;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
 }
 
+.match-result-teams a:hover {
+  color: #00ffff;
+}
 
 .match-result-details:nth-of-type(-n+5) {
   display: flex;
@@ -486,19 +586,18 @@ h3 {
   margin: 10% 34%;
   background-color: #008000;
   color: #fff;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
   white-space: nowrap;
-  transition: all ease-in-out 1;
-  -webkit-transition: all ease-in-out 1s;
-  -ms-transition: all ease-in-out 1s;
-  -o-transition: all ease-in-out 1s;
-  -moz-transition: all ease-in-out 1s;
 }
 
 .match-result-load-more:hover {
   background-color: #00ffff;
   color: #ff0000;
 }
-
 
 /* match details styling end  */
 /*=================================
@@ -507,7 +606,7 @@ h3 {
 
 /*=================================
   footer styling starts here
-=================================*/ 
+=================================*/
 footer {
   background-color: #a52a2a;
 }
@@ -517,7 +616,7 @@ footer .wrapper {
   align-items: center;
   justify-content: space-between;
 }
-  
+
 footer img {
   width: 38%;
   border-radius: 50px;
@@ -535,8 +634,8 @@ footer img {
 .social-links li a::before {
   content: "\f09a";
   padding: 4px 6px;
-  float: right;
   border-radius: 100%;
+  float: right;
   color: #ffa500;
   font-family: "fontAwesome";
   font-size: 23px;
@@ -560,10 +659,9 @@ footer img {
   content: "\f099";
 }
 
-
- /*=================================
+/*=================================
   footer styling ends here
-=================================*/ 
+=================================*/
 
 /*media query starts*/
 
@@ -584,30 +682,35 @@ footer img {
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
 
-.clublist .wrapper,.leage-info-wrapper,.login-page .wrapper,.match-details .wrapper {
-  width: 100%;
-}
+  .clublist .wrapper,
+  .leage-info-wrapper,
+  .login-page .wrapper,
+  .match-details .wrapper {
+    width: 100%;
+  }
 
-header .wrapper,footer .wrapper {
-  justify-content: space-between;
-  flex-direction: column;
-  row-gap: 10px;
-}
+  header .wrapper,
+  footer .wrapper {
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 10px;
+  }
 
-.menus {
-  width: 45%;
-}
+  .menus {
+    width: 45%;
+  }
 
-.logout {
-  margin-left: auto;
-}
+  .logout {
+    margin-left: auto;
+  }
 
-.about-leage,.leage-history {
-  width: 60%;
-  font-size: 20px;
-}
+  .about-leage,
+  .leage-history {
+    width: 60%;
+    font-size: 20px;
+  }
 
-}  
+}
 
 /*media query for 768px starts here*/
 @media only screen and (max-width: 768px) {
@@ -649,11 +752,17 @@ header .wrapper,footer .wrapper {
     padding-left: 5%;
   }
 
-  .match-result-teams a:hover,.logout:hover,.club:hover,.teams-involved:hover,.matchdays li:hover,.match-result-teams a:hover {
+  .match-result-teams a:hover,
+  .logout:hover,
+  .club:hover,
+  .teams-involved:hover,
+  .matchdays li:hover,
+  .match-result-teams a:hover {
     color: #fff;
   }
 
-  .load-more:hover,.match-result-load-more:hover {
+  .load-more:hover,
+  .match-result-load-more:hover {
     background-color: #008000;
     color: #fff;
   }
