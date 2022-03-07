@@ -181,7 +181,7 @@ $(document).ready(function () {
                                 <span class="match-result-Round">Round: ${result.matches[key].round}</span>
                                 <span class="match-result-date">Date: ${result.matches[key].date}</span>
                                 <p class="match-result-teams">
-                                    <a href="clublist.html?a=${result.matches[key].team1}" title="Team" target="_blank">${result.matches[key].team1} </a>:<a href="clublist.html?a=${result.matches[key].team1}"
+                                    <a href="clublist.html?a=${result.matches[key].team1}" title="Team" target="_blank">${result.matches[key].team1} </a>:<a href="clublist.html?a=${result.matches[key].team2}"
                                         title="Team" target="_blank">${result.matches[key].team2} </a></p>
                                 <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</span>
                             </div>`
