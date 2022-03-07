@@ -797,4 +797,9 @@ footer img {
   .forgot:hover {
     color: #00ffff;
   }
+
+  input[type="submit"]:hover {
+    background-color: #6495ed;
+    color: #fff;
+  }
 }
