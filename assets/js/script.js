@@ -7,13 +7,13 @@ $(document).ready(function () {
         });
     });
     let valid = localStorage.getItem('validuser'),
-    url = new URL(window.location.href),
-    urlstring = url.search.slice(1),
-    searchurlparam = new URLSearchParams(urlstring),
-    paramvalue = searchurlparam.get('a');
-    if(paramvalue === null){
+        url = new URL(window.location.href),
+        urlstring = url.search.slice(1),
+        searchurlparam = new URLSearchParams(urlstring),
+        paramvalue = searchurlparam.get('a');
+    if (paramvalue === null) {
         console.log("null");
-    }else{
+    } else {
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
             type: "GET",
@@ -58,12 +58,12 @@ $(document).ready(function () {
                             </div>`
                         )
                     }
-                }      
+                }
                 changecolor(paramvalue);
             }
         })
     }
-        i = 4;
+    i = 4;
     if (!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")) {
         if (!valid) {
             window.location.href = 'index.html';
@@ -90,7 +90,7 @@ $(document).ready(function () {
     });
     $('.clublistmenu').on('click', 'li', function () {
         i = 4;
-        $('.load-more').css("display","block");
+        $('.load-more').css("display", "block");
         let clubname = $(this).html();
         $('.clublistmenu li').removeClass("yellow");
         $(this).addClass('yellow');
@@ -128,7 +128,7 @@ $(document).ready(function () {
                             </div>`
                         )
                     }
-                }      
+                }
             }
         })
     })
@@ -136,10 +136,10 @@ $(document).ready(function () {
         i += 5;
 
         let team_result = document.querySelectorAll('.team-results-match-info'),
-            team_result_length = team_result.length-1;
+            team_result_length = team_result.length - 1;
         for (j = 0; j <= i; j++) {
             team_result[j].style.display = "flex";
-            if(j === team_result_length) {
+            if (j === team_result_length) {
                 document.querySelector('.load-more').style.display = "none";
             }
         }
@@ -151,13 +151,13 @@ $(document).ready(function () {
             type: "GET",
             success: function (data) {
                 let result = JSON.parse(data),
-                 uniqueresult =[];
-                 console.log(uniqueresult);
+                    uniqueresult = [];
+                console.log(uniqueresult);
                 for (key in result.matches) {
-                        uniqueresult.push(result.matches[key].round);
+                    uniqueresult.push(result.matches[key].round);
                 }
-                let getuniquevalue =  [...new Set(uniqueresult)];
-                for(key in getuniquevalue) {
+                let getuniquevalue = [...new Set(uniqueresult)];
+                for (key in getuniquevalue) {
                     $('.matchdays').append(`<li class='match-day'>${getuniquevalue[key]}</li>`);
                 }
             }
@@ -192,20 +192,20 @@ $(document).ready(function () {
                     `<button class="match-result-load-more">Show More</button> `
                 )
             }
-        })     
+        })
     })
     $('.match-result-box').on('click', 'button', function () {
         i += 5;
         let match_result = document.querySelectorAll('.match-result-details'),
-            match_result_length = match_result.length-1;
+            match_result_length = match_result.length - 1;
         for (j = 0; j <= i; j++) {
             match_result[j].style.display = "flex";
-            if(j === match_result_length) {
-                $('.match-result-load-more').css("display","none");
+            if (j === match_result_length) {
+                $('.match-result-load-more').css("display", "none");
             }
-        }       
+        }
     })
-    $('.match-result-box').on('click','a',function(){
+    $('.match-result-box').on('click', 'a', function () {
         // alert($(this).attr('href'));
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
@@ -219,8 +219,9 @@ $(document).ready(function () {
                 }
             }
         })
-    })    
+    })
 });
+
 function login(event) {
     event.preventDefault();
     localStorage.setItem('username1', 'saurabh96');
@@ -238,13 +239,13 @@ function login(event) {
         window.open('index.html');
     }
 }
-function changecolor(paramvalue){
-    let clubnames = document.querySelectorAll('.clublist li');
-       clubnames.forEach(i=>{
-       console.log(i);
-       if(i.innerHTML === paramvalue){
-           i.style.color = "#ffff00";
-       }
-   })
-}
 
+function changecolor(paramvalue) {
+    let clubnames = document.querySelectorAll('.clublist li');
+    clubnames.forEach(i => {
+        console.log(i);
+        if (i.innerHTML === paramvalue) {
+            i.style.color = "#ffff00";
+        }
+    })
+}
