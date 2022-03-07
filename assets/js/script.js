@@ -206,7 +206,6 @@ $(document).ready(function () {
         }
     })
     $('.match-result-box').on('click', 'a', function () {
-        // alert($(this).attr('href'));
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
             type: "GET",
