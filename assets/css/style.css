@@ -602,6 +602,11 @@ header .wrapper,footer .wrapper {
   margin-left: auto;
 }
 
+.about-leage,.leage-history {
+  width: 60%;
+  font-size: 20px;
+}
+
 }  
 
 /*media query for 768px starts here*/
