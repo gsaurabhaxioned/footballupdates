@@ -390,6 +390,10 @@ h3 {
   cursor: pointer;
 }
 
+.yellow {
+  color: #ffff00;
+}
+
 .match-result-details {
   padding: 16px 0;
   border-bottom: 4px dashed;
