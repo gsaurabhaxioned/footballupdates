@@ -6,7 +6,6 @@ $(document).ready(function () {
             $(this).toggleClass("cross");
         });
     });
-
     let valid = localStorage.getItem('validuser'),
     url = new URL(window.location.href),
     urlstring = url.search.slice(1),
@@ -27,7 +26,6 @@ $(document).ready(function () {
                 }
             }
         })
-
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
             type: "GET",
@@ -44,7 +42,6 @@ $(document).ready(function () {
                 }
             }
         })
-
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
             type: "GET",
@@ -65,9 +62,6 @@ $(document).ready(function () {
                 changecolor(paramvalue);
             }
         })
-
-        
-
     }
         i = 4;
     if (!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")) {
@@ -96,7 +90,7 @@ $(document).ready(function () {
     });
     $('.clublistmenu').on('click', 'li', function () {
         i = 4;
-        document.querySelector('.load-more').style.display = "block";
+        $('.load-more').css("display","block");
         let clubname = $(this).html();
         $('.clublistmenu li').removeClass("yellow");
         $(this).addClass('yellow');
@@ -207,12 +201,10 @@ $(document).ready(function () {
         for (j = 0; j <= i; j++) {
             match_result[j].style.display = "flex";
             if(j === match_result_length) {
-                document.querySelector('.match-result-load-more').style.display = "none";
+                $('.match-result-load-more').css("display","none");
             }
-        }
-       
+        }       
     })
-
     $('.match-result-box').on('click','a',function(){
         // alert($(this).attr('href'));
         $.ajax({
@@ -227,10 +219,8 @@ $(document).ready(function () {
                 }
             }
         })
-    })
-    
+    })    
 });
-
 function login(event) {
     event.preventDefault();
     localStorage.setItem('username1', 'saurabh96');
