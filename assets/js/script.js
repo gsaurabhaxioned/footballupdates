@@ -1,5 +1,63 @@
 $(document).ready(function () {
-    let valid = localStorage.getItem('validuser')
+    let valid = localStorage.getItem('validuser'),
+    url = new URL(window.location.href),
+    urlstring = url.search.slice(1),
+    searchurlparam = new URLSearchParams(urlstring),
+    paramvalue = searchurlparam.get('a');
+    if(paramvalue === null){
+        console.log("null");
+    }else{
+        $.ajax({
+            url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
+            type: "GET",
+            success: function (data) {
+                let result = JSON.parse(data);
+                for (key in result.clubs) {
+                    $('.clublistmenu').append(`
+                            <li class='club'>${result.clubs[key].name}</li>
+                            `);
+                }
+            }
+        })
+
+        $.ajax({
+            url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
+            type: "GET",
+            success: function (data) {
+                let result = JSON.parse(data);
+                for (key in result.clubs) {
+                    if (result.clubs[key].name === paramvalue) {
+                        $('.team-info').append(
+                            `<span class="team-name">Name: ${result.clubs[key].name}</span>
+                                <span class="team-code">Code: ${result.clubs[key].code}</span>
+                                <span class="country-name">${result.clubs[key].country}</span>`
+                        );
+                    }
+                }
+            }
+        })
+
+        $.ajax({
+            url: "https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
+            type: "GET",
+            success: function (data) {
+                let result = JSON.parse(data);
+                for (key in result.matches) {
+                    if (result.matches[key].team1 === paramvalue || result.matches[key].team2 === paramvalue) {
+                        $('.team-performance-box').append(
+                            `<div class="team-results-match-info">
+                                <span class="Round">Round: ${result.matches[key].round}</span>
+                                <span class="match-date">Date:  ${result.matches[key].date}</span>
+                                <a href="clublist.html?a=${result.matches[key].team1}" class="teams-involved">${result.matches[key].team1}</a>:<a href="clublist.html?a=${result.matches[key].team2}" class="teams-involved"> ${result.matches[key].team2}</a>
+                                <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
+                            </div>`
+                        )
+                    }
+                }      
+            }
+        })
+
+    }
         i = 4;
     if (!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")) {
         if (!valid) {
@@ -11,6 +69,7 @@ $(document).ready(function () {
         window.open('index.html');
     });
     $('.clubs-dropper').click(function () {
+        $('.clublistmenu').html("");
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
             type: "GET",
@@ -57,7 +116,7 @@ $(document).ready(function () {
                             `<div class="team-results-match-info">
                                 <span class="Round">Round: ${result.matches[key].round}</span>
                                 <span class="match-date">Date:  ${result.matches[key].date}</span>
-                                <span class="teams-involved">${result.matches[key].team1}: ${result.matches[key].team2}</span>
+                                <a href="clublist.html?a=${result.matches[key].team1}" class="teams-involved">${result.matches[key].team1}</a>:<a href="clublist.html?a=${result.matches[key].team2}" class="teams-involved"> ${result.matches[key].team2}</a>
                                 <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</spaan>
                             </div>`
                         )
@@ -79,6 +138,7 @@ $(document).ready(function () {
         }
     })
     $('.matchdays-dropper').click(function () {
+        $('.matchdays').html("");
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json",
             type: "GET",
@@ -112,7 +172,7 @@ $(document).ready(function () {
                                 <span class="match-result-Round">Round: ${result.matches[key].round}</span>
                                 <span class="match-result-date">Date: ${result.matches[key].date}</span>
                                 <p class="match-result-teams">
-                                    <a href="clublist.html?a=${result.matches[key].team1}" title="Team" target="_blank">${result.matches[key].team1} </a>:<a href="clublist.html"
+                                    <a href="clublist.html?a=${result.matches[key].team1}" title="Team" target="_blank">${result.matches[key].team1} </a>:<a href="clublist.html?a=${result.matches[key].team1}"
                                         title="Team" target="_blank">${result.matches[key].team2} </a></p>
                                 <span class="scores">${result.matches[key].score.ft[0]}:${result.matches[key].score.ft[1]}</span>
                             </div>`
@@ -136,6 +196,22 @@ $(document).ready(function () {
             }
         }
        
+    })
+
+    $('.match-result-box').on('click','a',function(){
+        // alert($(this).attr('href'));
+        $.ajax({
+            url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
+            type: "GET",
+            success: function (data) {
+                let result = JSON.parse(data);
+                for (key in result.clubs) {
+                    $('.clublistmenu').append(`
+                            <li class='club'>${result.clubs[key].name}</li>
+                            `);
+                }
+            }
+        })
     })
 });
 
