@@ -1,16 +1,17 @@
 $(document).ready(function () {
-
-    $(document).ready(function () {
+//hamburger functionality
         $(".hamburger").click(function () {
             $(".headermenus").slideToggle();
             $(this).toggleClass("cross");
         });
-    });
+ 
     let valid = localStorage.getItem('validuser'),
         url = new URL(window.location.href),
         urlstring = url.search.slice(1),
         searchurlparam = new URLSearchParams(urlstring),
-        paramvalue = searchurlparam.get('a');
+        paramvalue = searchurlparam.get('a'),
+        i=4;
+        //for checking if page redirected form match details page
     if (paramvalue === null) {
         console.log("null");
     } else {
@@ -63,16 +64,20 @@ $(document).ready(function () {
             }
         })
     }
-    i = 4;
-    if (!(window.location.href === "file:///C:/Users/soura/OneDrive/Desktop/ajaxtask/football%20updates/index.html")) {
+    // to check user login
+    if (!($(".login-page")[0])) {
         if (!valid) {
             window.location.href = 'index.html';
         } else {}
     }
+
+    //logout
     $('.logout').click(function () {
         localStorage.clear();
         window.open('index.html');
     });
+
+    //clubs dropdown
     $('.clubs-dropper').click(function () {
         $('.clublistmenu').html("");
         $.ajax({
@@ -88,6 +93,8 @@ $(document).ready(function () {
             }
         })
     });
+
+    //show club details and clubs performances on clicking club name
     $('.clublistmenu').on('click', 'li', function () {
         i = 4;
         $('.load-more').css("display", "block");
@@ -132,6 +139,8 @@ $(document).ready(function () {
             }
         })
     })
+
+    //load more on club list page
     $('.team-results').on('click', 'button', function () {
         i += 5;
 
@@ -144,6 +153,8 @@ $(document).ready(function () {
             }
         }
     })
+
+    // match days dropper
     $('.matchdays-dropper').click(function () {
         $('.matchdays').html("");
         $.ajax({
@@ -163,6 +174,8 @@ $(document).ready(function () {
             }
         })
     });
+
+    //show matches on the day which is clicked
     $('.matchdays').on('click', 'li', function () {
         i = 4;
         $('.match-result-box').html("");
@@ -194,6 +207,8 @@ $(document).ready(function () {
             }
         })
     })
+
+    //load more on match details
     $('.match-result-box').on('click', 'button', function () {
         i += 5;
         let match_result = document.querySelectorAll('.match-result-details'),
@@ -205,6 +220,8 @@ $(document).ready(function () {
             }
         }
     })
+
+    //redirect on clublist if team name cliked
     $('.match-result-box').on('click', 'a', function () {
         $.ajax({
             url: "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json",
@@ -220,9 +237,16 @@ $(document).ready(function () {
         })
     })
 });
+let loginform = document.querySelector('.loginform');
 
-function login(event) {
+    //login validation
+   loginform.addEventListener('submit',function(event) {
     event.preventDefault();
+    let usererror = $('.usernameerror'),
+    passerror = $('.passworderror');
+       usererror.html("");
+       passerror.html("");
+    
     localStorage.setItem('username1', 'saurabh96');
     localStorage.setItem('password1', '123456');
     let user1 = localStorage.getItem('username1'),
@@ -230,21 +254,30 @@ function login(event) {
     event.preventDefault();
     let username = $('.username').val(),
         password = $('.password').val();
-    if (username === user1 && password === pass1) {
+    
+
+        if(username === ""){
+            usererror.html("please enter username");
+            $('.username').addClass("errorbox");
+        }else if(password === ""){
+            passerror.html("please enter password")
+            $('.password').addClass("errorbox");
+        }else if (username === user1 && password === pass1) {
         localStorage.setItem('validuser', 'true');
         window.open('homepage.html');
     } else {
-        alert('invalid username or password');
-        window.open('index.html');
+        passerror.html("invalid username or password");
     }
-}
+}) 
 
+// to change color of club name when clicked
 function changecolor(paramvalue) {
     let clubnames = document.querySelectorAll('.clublist li');
     clubnames.forEach(i => {
+        i.classList.remove("yellow");
         console.log(i);
         if (i.innerHTML === paramvalue) {
-            i.style.color = "#ffff00";
+            i.classList.add("yellow");
         }
     })
 }

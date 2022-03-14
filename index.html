@@ -31,21 +31,22 @@
   <div class="container">
     <!--main section start-->
     <main>
-      <section class="login-page" onsubmit="login(event)">
+      <section class="login-page" >
         <div class="wrapper">
           <h1>Login</h1>
-          <form action="homepage.html" method="post">
+          <form action="homepage.html" method="post" class="loginform">
             <div class="usernamefield">
               <input type="text" name="username" class="username" placeholder="Enter username">
+              <span class="usernameerror"></span>
             </div>
             <div class="passwordfield">
-              <input type="text" name="password" class="password" placeholder="Enter password">
+              <input type="password" name="password" class="password" placeholder="Enter password">
+              <span class="passworderror"></span>
             </div>
             <div class="submit">
               <input type="submit" value="submit">
             </div>
           </form>
-          <a href="#FIXME" title="Forgot Password" target="_blank" class="forgot">forgot password?</a>
         </div>
       </section>
     </main>
