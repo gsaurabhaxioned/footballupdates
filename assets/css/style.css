@@ -225,6 +225,10 @@ header .wrapper {
 
 .hamburger,
 .cross {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
   display: none;
   text-indent: -9999px;
 }
@@ -244,6 +248,16 @@ header .wrapper {
 
 .menus {
   flex-basis: 20%;
+}
+
+.headermenus-show {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: #ff0000;
+  transform: translateX(0);
 }
 
 .menus ul {
@@ -293,7 +307,7 @@ header .wrapper {
 main {
   width: 100%;
   background-image: url(https://blog.playo.co/wp-content/uploads/2017/03/football-shots-you-need-to-know.jpg);
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-color: #000;
   background-blend-mode: luminosity;
@@ -311,7 +325,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 128, 0, 0.7);
+  background-color: rgb(0, 0, 255, 0.7);
 }
 
 .usernameerror,.passworderror {
@@ -403,7 +417,7 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(0, 128, 0, 0.7);
+  background: rgb(0, 0, 255, 0.7);
 }
 
 h3 {
@@ -429,7 +443,7 @@ h3 {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
-  background-color: rgb(0, 128, 0, 0.7);
+  background-color: rgb(0, 0, 255, 0.7);
 }
 
 .clubs-dropper {
@@ -560,7 +574,7 @@ h3 {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
-  background-color: rgb(0, 128, 0, 0.7);
+  background-color: rgb(0, 0, 255, 0.7);
 }
 
 .matchdays-dropper {
@@ -647,6 +661,7 @@ h3 {
   footer styling starts here
 =================================*/
 footer {
+  padding: 10px 0;
   background-color: #a52a2a;
 }
 
@@ -765,19 +780,25 @@ footer img {
   .clubs-dropper {
     font-size: 24px;
   }
+  header .wrapper {
+    position: relative;
+  }
 
   .headermenus {
     width: 100%;
     padding: 10px;
-    display: none;
+    position: absolute;
+    top: 100%;
     background-color: #ff0000;
+    transform: translateX(-500px);
   }
 
   .menus {
-    width: 70%;
+    width: 100%;
+    text-align: center;
   }
 
-  .headermenus ul {
+  .headermenus ul,.headermenus-show ul {
     flex-direction: column;
     row-gap: 10px;
   }
